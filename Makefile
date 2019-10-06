@@ -1,11 +1,13 @@
-all : pcap_test
+#Makefile
+all: sum_test
 
-pcap_test : main.o
-	g++ -g -o pcap_test main.o -lpcap
+sum_test: main.o sum.o
+	g++ -o sum_test main.o sum.o
 
-main.o :
-	g++ -g -c -o main.o main.cpp
+main.o: sum.h main.cpp
+
+sum.o: sum.h sum.cpp
 
 clean:
-	rm -f pcap_test
-	rm -f *.o
+	rm -f sum_test
+	rm -f *.0
